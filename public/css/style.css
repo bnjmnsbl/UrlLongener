@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+body {
+  background-color: #0099cc;
+  color: white;
+  font-family: "Special Elite", Courier; 
+  text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.result {
+    position: relative;
+    height: 640px;
+    width: 400px;
+    top: 100px;
+    left: 100px;
+    text-align: center;
+    
+}

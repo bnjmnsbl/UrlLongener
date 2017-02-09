@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <link href="./css/style.css" rel="stylesheet" type="text/css">
+        <title>URL Shortener Mircoservice</title>
+    </head>
+    
+    <body>
+    <div class="result">
+    <p>Redirecting to...</p>    
+    <%if (link.length) { %>
+        <a href="<%=link[0].long %>">
+        <%=link[0].long %>
+        </a>
+            
+    <% } else { %>
+        <p>Not a valid Url</p>
+    <% } %>
+    
+    </div>    
+    </body>
+    
+</html>
