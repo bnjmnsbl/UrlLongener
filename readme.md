@@ -2,7 +2,7 @@
 
 ## A microservice that creates long, complex and minionated URLs
 
-It works like an URL shortener, but makes most URLs actually longer. 
+It works like an URL shortener, but translates them into minion language (which makes most URLs actually longer, duh!). 
 
 This probably makes not much sense, but there you go. 
 
