@@ -1,13 +1,12 @@
-This is a microservice that creates really long and complex URLs out of regular URLS.
+# URL MINIONATOR
 
-Why?
+## A microservice that creates long, complex and minionated URLs
 
-Well, there were already many URL shorteners around, so this is a URL longener.
+It works like an URL shortener, but makes most URLs actually longer. 
 
 This probably makes not much sense, but there you go. 
 
-You CAN turn this app into a URL shortener easily, though, by changing the loop length
-in urlCheck's genShort() function. You'll probably figure that out. 
+You CAN turn this app into a URL shortener easily, by making a few changes to the genShort() function. You'll probably figure that out. 
 
 Enjoy!
 
