@@ -22,7 +22,9 @@ mongo.connect('mongodb://localhost:27017/benDB', (err, database) => {
 app.get("/new/*", (req, res) => {
     var urlLong = req.originalUrl.substring(5)
     var urlShort = "";
-    console.log("checking url for " + urlLong);
+
+    urlLong = check.urlAdapt(urlLong);
+
     if (check.urlCheck(urlLong)) {
         console.log(urlLong + " returned true");
         urlShort = check.genShort();
@@ -34,9 +36,8 @@ app.get("/new/*", (req, res) => {
         
         res.render("pages/error")
     }
-    
-    ;
-})
+});
+
 app.get("/*", (req, res)=> {
     var shortLink = req.originalUrl.substring(1);
      db.collection("urls").find({short: shortLink}).toArray(function(err, results) {
