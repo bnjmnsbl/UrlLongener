@@ -21,15 +21,18 @@ mongo.connect('mongodb://localhost:27017/benDB', (err, database) => {
 
 app.get("/new/*", (req, res) => {
     var urlLong = req.originalUrl.substring(5)
+    var urlShort = "";
+    console.log("checking url for " + urlLong);
     if (check.urlCheck(urlLong)) {
-        var urlShort = check.genShort();
+        console.log(urlLong + " returned true");
+        urlShort = check.genShort();
         db.collection("urls").save({long: urlLong, short: urlShort}, (err, result) => {
         if (err) console.log(err);     
-        res.send("Link saved! Your shortlink is " + urlShort)   
         });
-   
+        res.render("pages/shortlink", {link: urlShort})
     } else {
-        console.log("Not a valid url!")
+        
+        res.render("pages/error")
     }
     
     ;
@@ -38,12 +41,8 @@ app.get("/*", (req, res)=> {
     var shortLink = req.originalUrl.substring(1);
      db.collection("urls").find({short: shortLink}).toArray(function(err, results) {
         if (err) return console.log(err) 
-        /*if (!results.length) {
-            console.log("Empty!");
-        } else {
-        console.log(results[0].long);
-        }*/
-        res.render("index.ejs", {link: results})
+        
+        res.render("pages/index", {link: results})
        
     })
     
