@@ -16,19 +16,18 @@
             <a href="<%=link[0].long %>">
             <%=link[0].long %>
             </a>
-            
+            <script>
+            setTimeout(function(){
+            window.location.href = "<%=link[0].long%>";
+            },1000);
+            </script>
             <% } else { %>
             <p>Not a valid Url</p>
             <% } %>
     
         </div>  
     </main>
-    <script>
-        setTimeout(
-    function(){
-        window.open("<%=link[0].long%>")
-    },1000);
-    </script>
+    
     <footer>
         <% include ../partials/footer %>
     </footer>
