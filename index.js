@@ -25,6 +25,16 @@ app.get("/new/*", (req, res) => {
 
     urlLong = check.urlAdapt(urlLong);
 
+ // check if url already exists in database
+      db.collection("urls").findOne({long: urlLong}, function (err, doc){
+    if (err) console.log(err);
+    if (doc){
+      console.log("Entry already found");
+      res.render("pages/shortlink", {link: doc.short});
+    } else {
+      // The long URL was not found in the long_url field in our urls
+      // collection, so we need to create a new entry
+
     if (check.urlCheck(urlLong)) {
         console.log(urlLong + " returned true");
         urlShort = check.genShort();
@@ -35,7 +45,9 @@ app.get("/new/*", (req, res) => {
     } else {
         
         res.render("pages/error")
-    }
+    }    }
+  });
+
 });
 
 app.get("/*", (req, res)=> {

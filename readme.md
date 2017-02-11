@@ -10,7 +10,7 @@ You CAN turn this app into a URL shortener easily, by making a few changes to th
 
 ## Usage
 
-Create a new minionated URL by calling localhost/new/www.YOURURL.com
+Create a new minionated URL by calling localhost/new/[www.YOURURL.com]
 
 
 Enjoy!
